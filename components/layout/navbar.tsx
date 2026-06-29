@@ -2,6 +2,7 @@
 
 import { Search, Bell, ChevronDown } from "lucide-react";
 import Image from "next/image";
+import { DarkModeToggle } from "@/components/layout/dark-mode-toggle";
 
 export default function Navbar() {
   return (
@@ -34,6 +35,8 @@ export default function Navbar() {
             </span>
           </span>
         </button>
+        <DarkModeToggle />
+
 
         <div className="flex items-center gap-2 cursor-pointer group">
           <div className="relative w-8 h-8 rounded-full overflow-hidden border-2 border-transparent group-hover:border-primary transition-all">

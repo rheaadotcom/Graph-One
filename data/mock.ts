@@ -11,8 +11,8 @@ export type Company = {
   logo: string;
   employees: string;
   website: string;
-  products: Product[];
-  investors: Investor[];
+  productIds: string[];
+  investorIds: string[];
 };
 
 export type Investor = {
@@ -24,7 +24,7 @@ export type Investor = {
   foundedYear: number;
   assetsUnderManagement: string;
   description: string;
-  portfolio: Company[];
+  portfolioIds: string[];
 };
 
 export type Product = {
@@ -69,7 +69,7 @@ export const mockInvestors: Investor[] = [
     foundedYear: 1972,
     assetsUnderManagement: "$85B",
     description: "Sequoia helps daring founders build legendary companies from idea to IPO and beyond.",
-    portfolio: [], // Will populate below
+    portfolioIds: ["c1", "c3"],
   },
   {
     id: "i2",
@@ -80,7 +80,7 @@ export const mockInvestors: Investor[] = [
     foundedYear: 2009,
     assetsUnderManagement: "$35B",
     description: "a16z is a venture capital firm that backs bold entrepreneurs building the future through technology.",
-    portfolio: [],
+    portfolioIds: ["c1", "c2"],
   },
 ];
 
@@ -98,8 +98,8 @@ export const mockCompanies: Company[] = [
     logo: "GS",
     employees: "50-100",
     website: "https://graphscale.ai",
-    products: [mockProducts[0]],
-    investors: [mockInvestors[0], mockInvestors[1]],
+    productIds: ["p1"],
+    investorIds: ["i1", "i2"],
   },
   {
     id: "c2",
@@ -114,8 +114,8 @@ export const mockCompanies: Company[] = [
     logo: "ND",
     employees: "10-50",
     website: "https://neurodata.dev",
-    products: [mockProducts[1]],
-    investors: [mockInvestors[1]],
+    productIds: ["p2"],
+    investorIds: ["i2"],
   },
   {
     id: "c3",
@@ -130,11 +130,7 @@ export const mockCompanies: Company[] = [
     logo: "SC",
     employees: "1-10",
     website: "https://synthcorp.io",
-    products: [],
-    investors: [mockInvestors[0]],
+    productIds: [],
+    investorIds: ["i1"],
   }
 ];
-
-// Circular reference resolution for mock
-mockInvestors[0].portfolio.push(mockCompanies[0], mockCompanies[2]);
-mockInvestors[1].portfolio.push(mockCompanies[0], mockCompanies[1]);
