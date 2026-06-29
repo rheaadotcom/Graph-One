@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Sidebar from "@/components/layout/Sidebar";
+import { AppShell } from "@/components/layout/shell";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -17,13 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans antialiased bg-secondary`}>
-        <div className="flex min-h-screen">
-          <Sidebar />
-          <main className="flex-1 bg-white ml-64 rounded-l-3xl shadow-premium border-l border-border min-h-screen flex flex-col">
-            {children}
-          </main>
-        </div>
+      <body className={`${inter.variable} font-sans antialiased`}>
+        <AppShell>
+          {children}
+        </AppShell>
       </body>
     </html>
   );
