@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { mockInvestors } from "@/data/mock";
+import { mockInvestors, mockCompanies } from "@/data/mock";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,10 @@ export default async function InvestorPage({ params }: { params: Promise<{ slug:
   if (!investor) {
     notFound();
   }
+  
+  const portfolioCompanies = investor.portfolioIds
+    .map(id => mockCompanies.find(c => c.id === id))
+    .filter(Boolean) as typeof mockCompanies;
 
   return (
     <div className="space-y-8">
@@ -46,10 +50,10 @@ export default async function InvestorPage({ params }: { params: Promise<{ slug:
       </div>
 
       <div className="space-y-6">
-        <h2 className="text-xl font-bold tracking-tight">Portfolio Companies ({investor.portfolio.length})</h2>
-        {investor.portfolio.length > 0 ? (
+        <h2 className="text-xl font-bold tracking-tight">Portfolio Companies ({portfolioCompanies.length})</h2>
+        {portfolioCompanies.length > 0 ? (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {investor.portfolio.map((company) => (
+            {portfolioCompanies.map((company) => (
               <Link href={`/company/${company.slug}`} key={company.id} className="block transition-transform hover:-translate-y-1">
                 <Card className="h-full flex flex-col hover:border-primary/50 transition-colors">
                   <CardHeader className="pb-4">

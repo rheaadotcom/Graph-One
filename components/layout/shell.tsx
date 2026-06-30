@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Sidebar } from "@/components/layout/sidebar";
-import { Navbar } from "@/components/layout/navbar";
+import Navbar from "@/components/layout/navbar";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   return (

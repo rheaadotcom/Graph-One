@@ -51,7 +51,7 @@ export default function InvestorsPage() {
               <CardFooter className="pt-0 text-xs text-muted-foreground flex justify-between border-t border-border mt-4 px-6 py-4">
                 <div className="flex items-center gap-1">
                   <Briefcase className="h-3.5 w-3.5" />
-                  {investor.portfolio.length} Portfolio Cos
+                  {investor.portfolioIds.length} Portfolio Cos
                 </div>
                 <div>
                   Est. {investor.foundedYear}
