@@ -65,7 +65,7 @@ export default function HomePage() {
           </div>
           <div className="flex items-center gap-4 mb-4">
             <div className="w-12 h-12 rounded-xl bg-foreground flex items-center justify-center shrink-0">
-               <Image src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Cursor_logo.svg" alt="Cursor" width={24} height={24} className="invert brightness-0" />
+               <Image src="/logo/cursor.webp" alt="Cursor" width={24} height={24} />
             </div>
             <div>
               <h4 className="font-bold text-foreground">Cursor</h4>

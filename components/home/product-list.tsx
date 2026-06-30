@@ -19,18 +19,18 @@ const tabs = [
 ];
 
 const popularRightNow = [
-  { name: "Cursor", category: "AI code editor", logo: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Cursor_logo.svg" },
-  { name: "Claude", category: "AI assistant", logo: "https://upload.wikimedia.org/wikipedia/commons/0/07/Anthropic_logo.svg", isOrange: true },
+  { name: "Cursor", category: "AI code editor", logo: "/logo/cursor.webp" },
+  { name: "Claude", category: "AI assistant", logo: "/logo/claude-color.webp" },
   { name: "Lovable", category: "AI app builder", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_Heart_logo.png" },
-  { name: "Midjourney", category: "Image generator", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Midjourney_Emblem.png" },
-  { name: "Perplexity", category: "AI search", logo: "https://upload.wikimedia.org/wikipedia/commons/1/1b/Perplexity_AI_logo.svg" },
+  { name: "Midjourney", category: "Image generator", logo: "/logo/mid-journey.webp" },
+  { name: "Perplexity", category: "AI search", logo: "/logo/2u1cl5c5mm274tgpjfhr27b9v1o8.webp" },
 ];
 
 const products = [
   {
     name: "Cursor",
     description: "The AI-first code editor built for speed and productivity.",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Cursor_logo.svg",
+    logo: "/logo/cursor.webp",
     tags: ["Code", "Developer Tools"],
     badge: "Trending in Coding",
     badgeIcon: Flame,
@@ -42,7 +42,7 @@ const products = [
   {
     name: "Claude",
     description: "AI assistant for thoughtful work and collaboration.",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/0/07/Anthropic_logo.svg",
+    logo: "/logo/claude-color.webp",
     tags: ["Chat", "Productivity"],
     badge: "Most used this week",
     badgeIcon: Sparkles,
@@ -50,12 +50,11 @@ const products = [
     badgeBg: "bg-green-500/10",
     upvotes: "6.7K",
     comments: "89",
-    isOrange: true,
   },
   {
     name: "Midjourney",
     description: "AI image generator for creators and designers.",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Midjourney_Emblem.png",
+    logo: "/logo/mid-journey.webp",
     tags: ["Image", "Design"],
     badge: "Top rated in Image",
     badgeIcon: Sparkles,
@@ -67,7 +66,7 @@ const products = [
   {
     name: "ChatGPT",
     description: "Conversational AI for any question or task.",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
+    logo: "/logo/chatgpt-icon.webp",
     tags: ["Chat", "Artificial Intelligence"],
     badge: "Most used this week",
     badgeIcon: Sparkles,
@@ -111,8 +110,8 @@ export function ProductList() {
         <div className="flex items-center gap-4 overflow-x-auto scrollbar-hide pb-2">
           {popularRightNow.map((item) => (
             <div key={item.name} className="flex items-center gap-3 bg-white border border-border rounded-xl p-3 min-w-[200px] shadow-sm cursor-pointer hover:border-primary/30 transition-colors">
-              <div className={cn("w-10 h-10 rounded-lg flex items-center justify-center bg-secondary shrink-0", item.isOrange && "bg-[#d97757]")}>
-                <Image src={item.logo} alt={item.name} width={24} height={24} className={cn("object-contain", item.isOrange && "brightness-0 invert")} />
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-secondary shrink-0">
+                <Image src={item.logo} alt={item.name} width={24} height={24} className="object-contain" />
               </div>
               <div>
                 <h4 className="font-bold text-sm text-foreground">{item.name}</h4>
@@ -151,8 +150,8 @@ export function ProductList() {
         {products.map((product) => (
           <div key={product.name} className="flex items-center justify-between p-5 rounded-2xl bg-white border border-border hover:border-primary/30 hover:shadow-premium transition-all cursor-pointer group">
             <div className="flex items-start gap-5">
-              <div className={cn("w-14 h-14 rounded-xl flex items-center justify-center bg-secondary shrink-0 overflow-hidden", product.isOrange && "bg-[#d97757]")}>
-                <Image src={product.logo} alt={product.name} width={32} height={32} className={cn("object-contain", product.isOrange && "brightness-0 invert")} />
+              <div className="w-14 h-14 rounded-xl flex items-center justify-center bg-secondary shrink-0 overflow-hidden">
+                <Image src={product.logo} alt={product.name} width={32} height={32} className="object-contain" />
               </div>
               <div>
                 <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">{product.name}</h3>

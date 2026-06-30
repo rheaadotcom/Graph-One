@@ -4,11 +4,11 @@ import { Hexagon } from "lucide-react";
 import Image from "next/image";
 
 const nodes = [
-  { name: "OpenAI", logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg", angle: -90, radius: 140 },
-  { name: "Cursor", logo: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Cursor_logo.svg", angle: -18, radius: 140 },
-  { name: "Perplexity", logo: "https://upload.wikimedia.org/wikipedia/commons/1/1b/Perplexity_AI_logo.svg", angle: 54, radius: 140 },
-  { name: "Midjourney", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Midjourney_Emblem.png", angle: 126, radius: 140 },
-  { name: "Anthropic", logo: "https://upload.wikimedia.org/wikipedia/commons/0/07/Anthropic_logo.svg", angle: 198, radius: 140 },
+  { name: "OpenAI", logo: "/logo/chatgpt-icon.webp", angle: -90, radius: 140 },
+  { name: "Cursor", logo: "/logo/cursor.webp", angle: -18, radius: 140 },
+  { name: "Perplexity", logo: "/logo/2u1cl5c5mm274tgpjfhr27b9v1o8.webp", angle: 54, radius: 140 },
+  { name: "Midjourney", logo: "/logo/mid-journey.webp", angle: 126, radius: 140 },
+  { name: "Anthropic", logo: "/logo/claude-color.webp", angle: 198, radius: 140 },
 ];
 
 export function EcosystemGraph() {
@@ -49,6 +49,9 @@ export function EcosystemGraph() {
                 <span className="text-xl font-bold text-foreground absolute inset-0 flex items-center justify-center bg-white z-0">
                   {node.name.charAt(0)}
                 </span>
+                {node.logo && (
+                  <Image src={node.logo} alt={node.name} fill className="object-contain p-2 z-10 bg-white" />
+                )}
               </div>
               <span className="text-xs font-semibold text-foreground bg-white/80 backdrop-blur-sm px-2 py-0.5 rounded-full shadow-sm">
                 {node.name}
